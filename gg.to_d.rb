@@ -92,6 +92,46 @@ class GoogleGroupToDiscourse
     return topic
   end
 
+#  def get_messages (topic, driver)
+#    topic[:messages] =[] # messages will be appended to this as an array of hashes
+#    driver.navigate.to topic[:url]
+#    sleep (3) #wait for it to load
+#    # expand all the message_snippets
+#    minimized_messages = driver.find_elements(:xpath, "//span[contains(@id, 'message_snippet_')]")
+#    minimized_messages.each { |link| link.click; sleep (0.1)}
+#    # get all messages
+#    all_messages = driver.find_elements(:xpath, "//div[contains(@id, 'b_action_')]")
+#    puts "#{all_messages.count} messages in this thread"
+#    # iterate through messages
+#    sender = driver.find_elements(:class, 'D60KFG-S-a')
+#    date = driver.find_elements(:class, 'D60KFG-zb-Q')
+#    body = driver.find_elements(:class, 'D60KFG-zb-P').reject! { |c| c.text=="" } #reject blank ones
+#    all_messages.each_with_index do |message, index|
+#            topic[:messages] << { sender: (sender[index].attribute(:"data-name")||sender[index].text rescue nil), date: (date[index].attribute(:title) rescue  nil), body: (body[index].text rescue nil) }
+#    end
+#    return topic
+#  end
+#
+#
+#  messages = {} ; topics.each do |t|  messages[t[:url]] = get_messages(t, my_scraper.driver) ; end
+
+# messages = {}
+# my_scraper = GoogleGroupToDiscourse.new
+# 
+# topics.each do |t|
+#   if messages[t[:url]] && messages[t[:url]][:messages].size()!=0
+# 	puts "skipping #{t[:url]}"
+# 	next
+#   end
+#   begin
+#   	messages[t[:url]] = get_messages(t, my_scraper.driver)
+#   rescue Exception=>exc
+#	 puts "Error scraping #{t[:url]} #{exc.to_s}"
+#         my_scraper = GoogleGroupToDiscourse.new 
+#   end
+# end 
+
+
   def scrape_the_lot
     topics = get_topics
     topics.reverse_each do |topic|
