@@ -1,6 +1,6 @@
 ##Google Groups Scraper
 
-This started as a fork of [google_group.to_discourse](https://github.com/pacharanero/google_group.to_discourse), modified to simply dump the topics to json files.
+This started with [mfortini](https://github.com/mfortini) as a fork of [google_group.to_discourse](https://github.com/pacharanero/google_group.to_discourse) during our hacking sessions at [Masters of Networks 3](wikitalia.github.io/MoN3), modified to simply dump the topics to json files.
 
 Migrating away from a private Google Group is not easy. It would seem to be made deliberately so by Google.
 
